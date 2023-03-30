@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome');
+
+Route::post('/upload', function (Request $request) {
+    $result = $request->file('imagen')->storeOnCloudinary('laravel');
+
+    return view('result', [
+        'image_path' => $result->getSecurePath(),
+    ]);
+});
+
+Route::get('/test', function() {
+    return view('result', [
+        'image_path' => 'https://res.cloudinary.com/dcyar/image/upload/v1680147920/laravel/l6gierufjhd6hvietzy7.jpg',
+    ]);
 });

@@ -19,23 +19,15 @@
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <div class="max-w-4xl mx-auto p-6 lg:p-8">
             <div class="mt-16">
+                <a href="/" class="text-sm ml-1 text-blue-800">Volver atrás</a>
                 <div class="grid grid-cols-1 gap-6 lg:gap-8">
                     <div
                         class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div>
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Subir archivos a
-                                cloudianry</h2>
-                            <p class="text-slate-600">Ejemplo de como subir archivos a cloudinary con laravel</p>
-
-                            <form action="/upload" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="flex flex-col mt-8">
-                                    <input
-                                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                        id="imagen" name="imagen" type="file">
-                                </div>
-                                <button type="submit" class="mt-5 rounded-md w-full py-2 bg-indigo-500 text-white uppercase">Subir</button>
-                            </form>
+                        <div class="text-center">
+                            <h2 class="my-6 text-xl font-semibold text-gray-900 dark:text-white">Archivo subido a
+                                cloudinary</h2>
+                            <img src="{{ $image_path }}" class="w-1/2 my-6 mx-auto" alt="Imagen" />
+                            <a href="{{ $image_path }}" class="text-blue-600">{{ $image_path }}</a>
                         </div>
                     </div>
                 </div>
